@@ -1,0 +1,32 @@
+import express, { urlencoded } from 'express'
+import mongoose from 'mongoose';
+import taskRoute from '../routes/taskRoute.js';
+
+//consts
+const port = process.env.port
+const mongodb_url = process.env.mongodb_url
+if (!mongodb_url) {
+    console.log('no mongodb url provided in .env file')
+    process.exit(0)
+}
+//create server
+const app = express();
+
+//config accept json
+app.use(express.json())
+app.use(urlencoded({ extended: false }))
+app.use('/api/tasks', taskRoute)
+//use middleware
+//use routes
+
+//Init server
+async function connectDB() {
+    app.listen(port, () => { console.log(`server listening on port ${port}`) })
+    try {
+        const connection = await mongoose.connect(mongodb_url)
+        console.log("connected to DB")
+    } catch (error) {
+        console.log(error)
+    }
+}
+connectDB()
