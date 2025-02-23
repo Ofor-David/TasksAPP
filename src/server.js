@@ -1,6 +1,7 @@
 import express, { urlencoded } from 'express'
 import mongoose from 'mongoose';
 import taskRoute from '../routes/taskRoute.js';
+import logger from '../middleware/logger.js';
 
 //consts
 const port = process.env.port
@@ -15,13 +16,14 @@ const app = express();
 //config accept json
 app.use(express.json())
 app.use(urlencoded({ extended: false }))
-app.use('/api/tasks', taskRoute)
-//use middleware
-//use routes
 
+//use middleware
+app.use(logger)
+
+//use routes
+app.use('/api/tasks', taskRoute)
 //Init server
 async function connectDB() {
-    app.listen(port, () => { console.log(`server listening on port ${port}`) })
     try {
         const connection = await mongoose.connect(mongodb_url)
         console.log("connected to DB")
@@ -30,3 +32,4 @@ async function connectDB() {
     }
 }
 connectDB()
+app.listen(port, () => { console.log(`server listening on port ${port}`) })
