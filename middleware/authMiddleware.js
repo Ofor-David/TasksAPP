@@ -1,32 +1,28 @@
 import express from "express";
 import jwt from "jsonwebtoken"
 import User from "../models/userModel.js";
+import asyncHandler from 'express-async-handler'
 
-const authMiddleware = (async (req, res, next) => {
+const authMiddleware = asyncHandler(async (req, res, next) => {
 
     let token;
     //check for token
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-        try {
-            token = req.headers.authorization.split(' ')[1]
 
-            const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        token = req.headers.authorization.split(' ')[1]
 
-            if (decoded) {
-                const user = await User.findById(decoded.id)
-                if (!user) {
-                    res.status(404).json({ msg: 'user not found' })
-                } else {
-                    req.user = await User.findById(decoded.id).select('-password')
-                    next()
-                }
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+
+        if (decoded) {
+            const user = await User.findById(decoded.id)
+            if (!user) {
+                res.status(404).json({ msg: 'user not found' })
             } else {
-                res.status(404).json({ msg: 'NOT AUTHORIZED' })
+                req.user = await User.findById(decoded.id).select('-password')
+                next()
             }
-
-        } catch (error) {
-            res.status(400).json({ msg: 'unauthorized: invalid or expired token' })
-
+        } else {
+            res.status(404).json({ msg: 'NOT AUTHORIZED' })
         }
 
     } else {
