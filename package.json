@@ -1,11 +1,11 @@
 {
   "name": "tasksapi",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "A simple API for managing tasks",
+  "main": "./src/server.js",
   "scripts": {
     "dev": "node --watch --env-file=.env ./src/server.js",
-    "start": "node --env-file-.env ./src/server.js"
+    "start": "node --env-file=.env ./src/server.js"
   },
   "keywords": [],
   "author": "",
