@@ -1,7 +1,9 @@
 import express, { urlencoded } from 'express'
 import mongoose from 'mongoose';
 import taskRoute from '../routes/taskRoute.js';
+import userRoute from '../routes/userRoute.js';
 import logger from '../middleware/logger.js';
+
 
 //consts
 const port = process.env.port
@@ -22,6 +24,7 @@ app.use(logger)
 
 //use routes
 app.use('/api/tasks', taskRoute)
+app.use('/api/users', userRoute)
 //Init server
 async function connectDB() {
     try {
