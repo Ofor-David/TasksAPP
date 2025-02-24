@@ -13,15 +13,20 @@ const authMiddleware = (async (req, res, next) => {
             const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
             if (decoded) {
-                req.user = await User.findById(decoded.id).select('-password')
-                next()
+                const user = await User.findById(decoded.id)
+                if (!user) {
+                    res.status(404).json({ msg: 'user not found' })
+                } else {
+                    req.user = await User.findById(decoded.id).select('-password')
+                    next()
+                }
             } else {
                 res.status(404).json({ msg: 'NOT AUTHORIZED' })
             }
 
         } catch (error) {
-            res.status(400).json({msg:'unauthorized: invalid or expired token'})
-            
+            res.status(400).json({ msg: 'unauthorized: invalid or expired token' })
+
         }
 
     } else {

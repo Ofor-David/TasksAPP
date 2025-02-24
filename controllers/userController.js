@@ -74,7 +74,7 @@ export const loginUser = asyncHandler((async (req, res) => {
 //get me
 export const getUserProfile = asyncHandler((async (req, res) => {
     try {
-        const user = await User.findOne(req.user)
+        const user = await User.findyId(req.user.id)
 
         if (user) {
             res.status(200).json({
