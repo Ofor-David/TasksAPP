@@ -1,6 +1,6 @@
-# TasksAPI
+# TasksAPP
 
-This API allows users to manage their tasks efficiently. Users can register, log in, and perform CRUD operations on their tasks. The API ensures that each user's data is secure and accessible only to them.
+This MERN stack APP allows users to manage their tasks efficiently. Users can register, log in, and perform CRUD operations on their tasks. The API integrates a simple react frontend and ensures that each user's data is secure and accessible only to them using jwt.
 
 ## Table of Contents
 
