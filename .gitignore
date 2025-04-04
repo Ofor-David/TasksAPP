@@ -1,2 +1,14 @@
 node_modules
 .env
+oauthMiddleware.js
+package-lock.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+dist
+dist-ssr
+*.local
+.vscode
