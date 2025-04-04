@@ -13,33 +13,49 @@ This MERN stack APP allows users to manage their tasks efficiently. Users can re
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/Ofor-David/TasksAPI.git
+    git clone https://github.com/Ofor-David/TasksAPP.git
     ```
-2. Navigate to the project directory:
+2. Install the Backend dependencies:
     ```sh
-    cd tasksapi
-    ```
-3. Install the dependencies:
-    ```sh
+    cd tasksapp
+    cd Backend
     npm install
     ```
-4. Create a `.env` file in the root directory and add your MongoDB URL, port and jwt secret:
+3.  Install the Frontend dependencies:
+     ```sh
+    cd TasksAPP
+    cd Frontend
+    npm install
+    ```
+    
+4. Create a `.env` file in the Backend directory and add your MongoDB URL, port and jwt secret:
     ```env
     mongodb_url=your_mongodb_url
     port=your_port
     JWT_SECRET=your jwt secret
     ```
 
-## Usage
+## Backend Usage
 
-To start the server in development mode:
+To start the Backend server in development mode:
 ```sh
 npm run dev
 ```
 
-To start the server in production mode:
+To start the Backend server in production mode:
 ```sh
 npm start
+```
+
+## Frontend Usage
+
+To run the Frontend in development mode
+```sh
+npm run dev
+```
+To build the Frontend for production:
+```sh
+npm run build
 ```
 
 ## Endpoints
