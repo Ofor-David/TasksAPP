@@ -49,6 +49,11 @@ npm start
 
 ## Frontend Usage
 
+⚠ Make sure to edit the  the "API_URL" variable in Frontend\src\tasksapp.tsx with your actual backend url.
+```js
+const API_URL = "http://localhost:8000/api"; //replace with: {backend url}/api
+```
+
 To run the Frontend in development mode
 ```sh
 npm run dev
