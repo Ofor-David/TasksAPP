@@ -1,0 +1,5 @@
+aws_access_key = "you aws access key"
+aws_secret_key = "your aws secret key"
+aws_region     = "us-east-1"
+aws_az1        = "us-east-1a"
+aws_az2        = "us-east-1b"

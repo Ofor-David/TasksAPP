@@ -1,6 +1,6 @@
 # TasksAPP
 
-This MERN stack APP allows users to manage their tasks efficiently. Users can register, log in, and perform CRUD operations on their tasks. The API integrates a simple react frontend and ensures that each user's data is secure and accessible only to them using jwt.
+This MERN stack APP deployed on aws using Terraform or locally allows users to manage their tasks efficiently. Users can register, log in, and perform CRUD operations on their tasks. The API integrates a simple react frontend and ensures that each user's data is secure and accessible only to them using jwt.
 
 ## Table of Contents
 
