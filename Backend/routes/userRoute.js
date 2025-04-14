@@ -1,7 +1,7 @@
 import express from 'express'
 import { registerUser, loginUser, getUserProfile, deleteUser } from '../controllers/userController.js'
 import authMiddleware from '../middleware/authMiddleware.js'
-import passport from 'passport'
+//import passport from 'passport'
 const userRoute = express.Router()
 
 /* userRoute.get('/auth/google',
