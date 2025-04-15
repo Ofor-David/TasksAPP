@@ -7,6 +7,7 @@ import cors from 'cors';
 //consts
 const port = process.env.port
 const mongodb_url = process.env.mongodb_url
+const frontend_url = process.env.frontend_url
 if (!mongodb_url) {
     console.log('no mongodb url provided in .env file')
     process.exit(0)
@@ -22,7 +23,7 @@ app.use(urlencoded({ extended: false }))
 app.use(logger)
 
 const corsOptions = {
-    origin: 'http://localhost:5173',  // Replace with your frontend URL
+    origin: frontend_url,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Specify allowed methods
     credentials: true,  // Allow credentials (e.g., cookies, authorization headers)
 };
