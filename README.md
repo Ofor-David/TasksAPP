@@ -33,6 +33,7 @@ This MERN stack APP deployed on aws using Terraform or locally allows users to m
     mongodb_url=your_mongodb_url
     port=your_port
     JWT_SECRET=your jwt secret
+    frontendurl=your frontend url
     ```
 
 ## Backend Usage
