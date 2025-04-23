@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios, { AxiosError } from "axios";
 
-const API_URL = "http://localhost:8000/api"; //replace with: {backend url}/api
+const API_URL = "http://localhost/8000/api"; //replace with: {backend url}/api
 
 interface Task {
   _id: string;
